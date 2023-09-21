@@ -64,7 +64,7 @@ var productUrls = map[string]string{
 	"Migration Center":          "/migration",
 	"Composer":                  "/composer",
 	"Dataproc":                  "/dataproc",
-	"Pu":                        "/Sub /cloudpubsub",
+	"Pub/Sub":                   "/cloudpubsub",
 	"Dataflow":                  "/dataflow",
 	"Datastream":                "/datastream",
 	"IoT Core":                  "/iot",

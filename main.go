@@ -14,14 +14,6 @@ import (
 )
 
 func main() {
-	// all_projects="$(gcloud projects list --format=json)"
-	// tenants=$( (jq -r '.[] | .labels | select(has("tenant")) | .tenant' | sort | uniq) <<<"$all_projects")
-	// tenant="$(fzf --ansi -1 -q "${1}" <<<"$tenants")"
-	// projects=$( (jq -r ".[] | select(.labels.tenant == \"$tenant\")|.projectId") <<<"$all_projects")
-	// project="$(fzf --ansi -1 -q "${1}" <<<"$projects")"
-	// wl-copy -n <<< "$project"
-	// echo "$project copied to clipboard"
-
 	if err := run(); err != nil {
 		log.Errorf("run: %v", err)
 		os.Exit(1)
@@ -42,6 +34,9 @@ func run() error {
 			return err
 		}
 		tenant := project.GetLabels()["tenant"]
+		if tenant == "" {
+			tenant = "no tenant label"
+		}
 
 		if tenantProjects[tenant] == nil {
 			tenantProjects[tenant] = make(map[string]*resourcemanagerpb.Project)

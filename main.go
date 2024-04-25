@@ -56,7 +56,11 @@ func run() error {
 	project := fzf(keys(tenantProjects[tenant]))
 	url := productUrls[fzf(keys(productUrls))]
 
-	fmt.Printf("https://console.cloud.google.com%s?project=%s\n", url, project)
+	if url == "custom://launch-ssh" {
+		return ssh(project)
+	} else {
+		fmt.Printf("https://console.cloud.google.com%s?project=%s\n", url, project)
+	}
 
 	return nil
 }

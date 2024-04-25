@@ -107,4 +107,5 @@ var productUrls = map[string]string{
 	"Citrix DaaS":               "/marketplace/product/citrix-public/citrix-daas-for-google-cloud.endpoints.citrix-master-project.cloud.goog",
 	"Appliances":                "/appliances",
 	"Edge":                      "/distributed-cloud",
+	"SSH":                       "custom://launch-ssh",
 }
